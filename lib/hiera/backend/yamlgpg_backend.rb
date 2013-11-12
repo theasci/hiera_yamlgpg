@@ -85,6 +85,8 @@ class Hiera
                     else
                         return d
                     end
+                elsif d.class == FalseClass or d.class == TrueClass or d.class == Fixnum or d.class == Float
+                    return d
                 elsif d.kind_of? Array
                     return d.map{|v| decrypt_any(v)}
                 elsif d.kind_of? Hash
